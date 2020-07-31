@@ -1,0 +1,64 @@
+,variables_removed,r_squared,high_vifs
+0,['decade_built_2000'],0.863,{'const': 105.4748245817837}
+1,['decade_built_1990'],0.863,{'const': 105.32466959238181}
+2,['decade_built_1960'],0.862,{'const': 98.95007173404109}
+3,['decade_built_1980'],0.863,{'const': 102.50329063484702}
+4,['decade_built_1970'],0.861,{'const': 101.53360644893115}
+5,['decade_built_1950'],0.863,{'const': 99.41451258801777}
+6,"['decade_built_1990', 'decade_built_2000']",0.862,{'const': 104.87868372714244}
+7,"['decade_built_1960', 'decade_built_2000']",0.861,{'const': 98.82757122916973}
+8,"['decade_built_1980', 'decade_built_2000']",0.862,{'const': 102.40406572254726}
+9,"['decade_built_1970', 'decade_built_2000']",0.861,{'const': 101.3658728665987}
+10,"['decade_built_1950', 'decade_built_2000']",0.862,{'const': 99.1252042964969}
+11,"['decade_built_1960', 'decade_built_1990']",0.862,{'const': 98.89691963172582}
+12,"['decade_built_1980', 'decade_built_1990']",0.862,{'const': 102.40377302894916}
+13,"['decade_built_1970', 'decade_built_1990']",0.861,{'const': 101.40773135707214}
+14,"['decade_built_1950', 'decade_built_1990']",0.862,{'const': 99.18814273403413}
+15,"['decade_built_1960', 'decade_built_1980']",0.862,{'const': 98.23165744852176}
+16,"['decade_built_1960', 'decade_built_1970']",0.861,{'const': 98.10747480984294}
+17,"['decade_built_1950', 'decade_built_1960']",0.862,{'const': 96.82516379602586}
+18,"['decade_built_1970', 'decade_built_1980']",0.861,{'const': 100.34869226808615}
+19,"['decade_built_1950', 'decade_built_1980']",0.862,{'const': 98.18561951043122}
+20,"['decade_built_1950', 'decade_built_1970']",0.861,{'const': 98.01779665101338}
+21,"['decade_built_1960', 'decade_built_1990', 'decade_built_2000']",0.861,{'const': 98.82171749603937}
+22,"['decade_built_1980', 'decade_built_1990', 'decade_built_2000']",0.862,{'const': 102.36081449796387}
+23,"['decade_built_1970', 'decade_built_1990', 'decade_built_2000']",0.861,{'const': 101.32855377617003}
+24,"['decade_built_1950', 'decade_built_1990', 'decade_built_2000']",0.862,{'const': 99.06591278189592}
+25,"['decade_built_1960', 'decade_built_1980', 'decade_built_2000']",0.861,{'const': 98.22996754128202}
+26,"['decade_built_1960', 'decade_built_1970', 'decade_built_2000']",0.861,{'const': 98.09183050647727}
+27,"['decade_built_1950', 'decade_built_1960', 'decade_built_2000']",0.861,{'const': 96.7934832704318}
+28,"['decade_built_1970', 'decade_built_1980', 'decade_built_2000']",0.861,{'const': 100.34696265007577}
+29,"['decade_built_1950', 'decade_built_1980', 'decade_built_2000']",0.862,{'const': 98.1756209714794}
+30,"['decade_built_1950', 'decade_built_1970', 'decade_built_2000']",0.861,{'const': 97.97893058270034}
+31,"['decade_built_1960', 'decade_built_1980', 'decade_built_1990']",0.862,{'const': 98.22267068667735}
+32,"['decade_built_1960', 'decade_built_1970', 'decade_built_1990']",0.861,{'const': 98.10695692795714}
+33,"['decade_built_1950', 'decade_built_1960', 'decade_built_1990']",0.862,{'const': 96.82415323471174}
+34,"['decade_built_1970', 'decade_built_1980', 'decade_built_1990']",0.861,{'const': 100.34767393035334}
+35,"['decade_built_1950', 'decade_built_1980', 'decade_built_1990']",0.862,{'const': 98.18551602949083}
+36,"['decade_built_1950', 'decade_built_1970', 'decade_built_1990']",0.861,{'const': 98.01028746023086}
+37,"['decade_built_1960', 'decade_built_1970', 'decade_built_1980']",0.861,{'const': 97.77329176034124}
+38,"['decade_built_1950', 'decade_built_1960', 'decade_built_1980']",0.862,{'const': 96.49292945817088}
+39,"['decade_built_1950', 'decade_built_1960', 'decade_built_1970']",0.861,{'const': 96.49549571819375}
+40,"['decade_built_1950', 'decade_built_1970', 'decade_built_1980']",0.861,{'const': 97.53202725659405}
+41,"['decade_built_1960', 'decade_built_1980', 'decade_built_1990', 'decade_built_2000']",0.861,{'const': 98.21572960211553}
+42,"['decade_built_1960', 'decade_built_1970', 'decade_built_1990', 'decade_built_2000']",0.861,{'const': 98.08476668068535}
+43,"['decade_built_1950', 'decade_built_1960', 'decade_built_1990', 'decade_built_2000']",0.861,{'const': 96.7903938588122}
+44,"['decade_built_1970', 'decade_built_1980', 'decade_built_1990', 'decade_built_2000']",0.861,{'const': 100.34438744411719}
+45,"['decade_built_1950', 'decade_built_1980', 'decade_built_1990', 'decade_built_2000']",0.862,{'const': 98.17467213226207}
+46,"['decade_built_1950', 'decade_built_1970', 'decade_built_1990', 'decade_built_2000']",0.861,{'const': 97.97892934581095}
+47,"['decade_built_1960', 'decade_built_1970', 'decade_built_1980', 'decade_built_2000']",0.861,{'const': 97.76986233498815}
+48,"['decade_built_1950', 'decade_built_1960', 'decade_built_1980', 'decade_built_2000']",0.861,{'const': 96.49215385779075}
+49,"['decade_built_1950', 'decade_built_1960', 'decade_built_1970', 'decade_built_2000']",0.861,{'const': 96.49318879246466}
+50,"['decade_built_1950', 'decade_built_1970', 'decade_built_1980', 'decade_built_2000']",0.861,{'const': 97.53104515033446}
+51,"['decade_built_1960', 'decade_built_1970', 'decade_built_1980', 'decade_built_1990']",0.861,{'const': 97.72694446757636}
+52,"['decade_built_1950', 'decade_built_1960', 'decade_built_1980', 'decade_built_1990']",0.862,{'const': 96.4576336313487}
+53,"['decade_built_1950', 'decade_built_1960', 'decade_built_1970', 'decade_built_1990']",0.861,{'const': 96.48199401952814}
+54,"['decade_built_1950', 'decade_built_1970', 'decade_built_1980', 'decade_built_1990']",0.861,{'const': 97.5081185930438}
+55,"['decade_built_1950', 'decade_built_1960', 'decade_built_1970', 'decade_built_1980']",0.861,{'const': 96.31411392123724}
+56,"['decade_built_1960', 'decade_built_1970', 'decade_built_1980', 'decade_built_1990', 'decade_built_2000']",0.861,{'const': 97.72649773134746}
+57,"['decade_built_1950', 'decade_built_1960', 'decade_built_1980', 'decade_built_1990', 'decade_built_2000']",0.861,{'const': 96.45547541170164}
+58,"['decade_built_1950', 'decade_built_1960', 'decade_built_1970', 'decade_built_1990', 'decade_built_2000']",0.861,{'const': 96.47047356754845}
+59,"['decade_built_1950', 'decade_built_1970', 'decade_built_1980', 'decade_built_1990', 'decade_built_2000']",0.861,{'const': 97.50738551773945}
+60,"['decade_built_1950', 'decade_built_1960', 'decade_built_1970', 'decade_built_1980', 'decade_built_2000']",0.861,{'const': 96.30647366892713}
+61,"['decade_built_1950', 'decade_built_1960', 'decade_built_1970', 'decade_built_1980', 'decade_built_1990']",0.861,{'const': 96.24641074413667}
+62,"['decade_built_1950', 'decade_built_1960', 'decade_built_1970', 'decade_built_1980', 'decade_built_1990', 'decade_built_2000']",0.861,{'const': 96.24635381891973}
