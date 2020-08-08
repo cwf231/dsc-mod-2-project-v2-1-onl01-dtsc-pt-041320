@@ -1,160 +1,372 @@
+# Introduction:
 
-# Module 2 Final Project
+When it comes to selling a house, people always have a different perception of what the experience should be like. Sometimes a seller has sentimental attachment to the house they grew up in (or raised their children in). Other times, they feel that investments and improvements they've made to the house and/or property are worth more than they actually are.
 
+Regardless of a seller's feelings, there are concrete ways to look at a house and determine an appropriate value.
 
-## Introduction
+In this project, we look at a dataset from *King County House Sales* and try to create some insight into the housing market in that area. The goal is to create a linear regression model which is highly interpretable and helps determine the relative value of different aspects of the house.
 
-In this lesson, we'll review all of the guidelines and specifications for the final project for Module 2.
+***
 
-## Objectives
-You will be able to:
-* Describe all required aspects of the final project for Module 2
-* Describe all required deliverables
-* Describe what constitutes a successful project
+In order to make insights, we will use the *OSEMN* process.
+> * **O**btain **S**crub **E**xplore **M**odel i**N**terpret - **OSEMN**
 
-## Final Project Summary
+*Looking in detail:*
+> **Obtain**: In this project, this is as easy as loading in the given dataset.
+>
+> **Scrub**: We will do general cleaning of the data. This includes:
+>> - Casting columns to the correct data types.
+>> - Filling in missing values.
+>> - Normalizing the data (in this case, we'll be making one model with normalized / transformed data and another model without).
+>> - Checking for multicollinearity between variables.
+> 
+>  **Explore**: We will look at the data and see its relationship to itself and the target variable (in this case, the price of a home).
+> 
+> **Model**: We will create Linear Regression models in order to have an interpretable result and concrete deliverables to sellers on the factors which produce the biggest change to home price.
+> 
+> **Interpret**: Finally, we can use our results and draw conclusions.
 
-Another module down--you're almost half way there!
+# Outline
 
-![awesome](https://raw.githubusercontent.com/learn-co-curriculum/dsc-mod-2-project-v2-1/master/halfway-there.gif)
+The notebook follows an elaborated ***OSMEN*** process.
 
-All that remains in Module 2 is to put our newfound data science skills to use with a final project! You should expect this project to take between 20 and 25 hours of solid, focused effort. If you're done way quicker, go back and dig in deeper or try some of the optional "level up" suggestions. If you're worried that you're going to get to 30 hrs and still not even have the data imported, reach out to an instructor in Slack ASAP to get some help!
+## Obtain
 
-## The Dataset
-
-For this project, you'll be working with the King County House Sales dataset. We've modified the dataset to make it a bit more fun and challenging.  The dataset can be found in the file `"kc_house_data.csv"`, in this repo.
-
-The description of the column names can be found in the column_names.md file in this repository. As with most real world data sets, the column names are not perfectly described, so you'll have to do some research or use your best judgment if you have questions relating to what the data means.
-
-You'll clean, explore, and model this dataset with a multivariate linear regression to predict the sale price of houses as accurately as possible.
-
-## The Deliverables
-
-For online students, there will be five deliverables for this project (Note: On-campus students may have different requirements, please speak with your instructor):
-
-1. A well documented **Jupyter Notebook** containing any code you've written for this project and comments explaining it. This work will need to be pushed to your GitHub repository in order to submit your project.  
-2. An organized **README.md** file in the GitHub repository that describes the contents of the repository. This file should be the source of information for navigating through the repository.
-3. A short **Keynote/PowerPoint/Google Slides presentation** (delivered as a PDF export) giving a high-level overview of your methodology and recommendations for non-technical stakeholders. Make sure to also add and commit this pdf of your non-technical presentation to your repository with a file name of presentation.pdf.
-4. **[A Blog Post](https://github.com/learn-co-curriculum/dsc-welcome-blogging-v2-1)**	
-5. A **Video Walkthrough** of your non-technical presentation. Some common video recording tools used are Zoom, Quicktime, and Nimbus. After you record your presentation, publish it on a service like YouTube or Google Drive, you will need a link to the video to submit your project.
-
-Note: On-campus students may have different requirements, please speak with your instructor.
-
-### Jupyter Notebook Must-Haves
-
-For this project, your Jupyter Notebook should meet the following specifications:
-
-#### Organization/Code Cleanliness
-
-* The notebook should be well organized, easy to follow,  and code should be commented where appropriate.  
-    * Level Up: The notebook contains well-formatted, professional looking markdown cells explaining any substantial code.  All functions have docstrings that act as professional-quality documentation
-* The notebook is written for technical audiences with a way to both understand your approach and reproduce your results. The target audience for this deliverable is other data scientists looking to validate your findings.
-
-#### Visualizations & EDA
-
-* Your project contains at least 4 meaningful data visualizations, with corresponding interpretations. All visualizations are well labeled with axes labels, a title, and a legend (when appropriate)  
-* You pose at least 3 meaningful questions and answer them through EDA.  These questions should be well labeled and easy to identify inside the notebook.
-    * **Level Up**: Each question is clearly answered with a visualization that makes the answer easy to understand.   
-* Your notebook should contain 1 - 2 paragraphs briefly explaining your approach to this project.
-
-#### Model Quality/Approach
-
-* Your model should not include any predictors with p-values greater than .05.  
-* Your notebook shows an iterative approach to modeling, and details the parameters and results of the model at each iteration.  
-    * **Level Up**: Whenever necessary, you briefly explain the changes made from one iteration to the next, and why you made these choices.  
-* You provide at least 1 paragraph explaining your final model.   
-* You pick at least 3 coefficients from your final model and explain their impact on the price of a house in this dataset.   
+We were given data to work with for this project, so this step is simply reading in the data. 
 
 
-### Non-Technical Presentation Must-Haves
+```python
+import pandas as pd
 
-Another deliverable should be a Keynote, PowerPoint or Google Slides presentation delivered as a pdf file in your fork of this repository with the file name of `presentation.pdf` detailing the results of your project.  Your target audience is non-technical people interested in using your findings to maximize their profit when selling their home.
-
-Your presentation should:
-
-* Contain between 5 - 10 professional-quality slides.  
-    * **Level Up**: The slides should use visualizations whenever possible, and avoid walls of text.
-* Take no more than 5 minutes to present.   
-* Avoid technical jargon and explain the results in a clear, actionable way for non-technical audiences.   
-
-**_Based on the results of your models, your presentation should discuss at least two concrete features that highly influence housing prices._**
-
-### Blog Post Must-Haves
-
-Refer back to the [Blogging Guidelines](https://github.com/learn-co-curriculum/dsc-welcome-blogging-v2-1) for the technical requirements and blog ideas.
+df_raw = pd.read_csv('kc_house_data.csv')
+df_raw.head()
+```
 
 
-## The Process 
-The process for this project is identical to the process you followed for your module 1 project. We specified it again below as a refresher.
-(Note: On-campus students may have different processes, please speak with your instructor)
-
-### 1. Getting Started
-
-Please start by reviewing this document. If you have any questions, please ask them in Slack ASAP so (a) we can answer the questions and (b) so we can update this repository to make it clearer.
-
-Be sure to let the instructor team know when you’ve started working on a project, either by reaching out over Slack or, if you are in a full-time or part-time cohort, by connecting with your Cohort Lead in your weekly 1:1. If you’re not sure who to reach out to, post in the #online-ds-sp-000 channel in Slack.
-
-Once you're done with this module, please start on the project. Do that by forking this repository, cloning it locally, and working in the student.ipynb file. Make sure to also add and commit a pdf of your presentation to the repository with a file name of `presentation.pdf`.
-
-### 2. The Project Review
-
-_Note: On-campus students may have different review processes, please speak with your instructor._
-
-> **When you start on the project, please also reach out to an instructor immediately to schedule your project review** (if you're not sure who to schedule with, please ask in Slack!)
-
-#### What to expect from the Project Review
-
-Project reviews are focused on preparing you for technical interviews. Treat project reviews as if they were technical interviews, in both attitude and technical presentation *(sometimes technical interviews will feel arbitrary or unfair - if you want to get the job, commenting on that is seldom a good choice)*.
-
-The project review is comprised of a 45 minute 1:1 session with one of the instructors. During your project review, be prepared to:
-
-#### 1. Deliver your PDF presentation to a non-technical stakeholder.
-In this phase of the review (~10 mins) your instructor will play the part of a non-technical stakeholder that you are presenting your findings to. The presentation  should not exceed 5 minutes, giving the "stakeholder" 5 minutes to ask questions.
-
-In the first half of the presentation (2-3 mins), you should summarize your methodology in a way that will be comprehensible to someone with no background in data science and that will increase their confidence in you and your findings. In the second half (the remaining 2-3 mins) you should summarize your findings and be ready to answer a couple of non-technical questions from the audience. The questions might relate to technical topics (sampling bias, confidence, etc) but will be asked in a non-technical way and need to be answered in a way that does not assume a background in statistics or machine learning. You can assume a smart, business stakeholder, with a non-quantitative college degree.
-
-#### 2. Go through the Jupyter Notebook, answering questions about how you made certain decisions. Be ready to explain things like:
-    * "How did you pick the question(s) that you did?"
-    * "Why are these questions important from a business perspective?"
-    * "How did you decide on the data cleaning options you performed?"
-    * "Why did you choose a given method or library?"
-    * "Why did you select those visualizations and what did you learn from each of them?"
-    * "Why did you pick those features as predictors?"
-    * "How would you interpret the results?"
-    * "How confident are you in the predictive quality of the results?"
-    * "What are some of the things that could cause the results to be wrong?"
-
-Think of the first phase of the review (~30 mins) as a technical boss reviewing your work and asking questions about it before green-lighting you to present to the business team. You should practice using the appropriate technical vocabulary to explain yourself. Don't be surprised if the instructor jumps around or sometimes cuts you off - there is a lot of ground to cover, so that may happen.
-
-If any requirements are missing or if significant gaps in understanding are uncovered, be prepared to do one or all of the following:
-* Perform additional data cleanup, visualization, feature selection, modeling and/or model validation
-* Submit an improved version
-* Meet again for another Project Review
-
-What won't happen:
-* You won't be yelled at, belittled, or scolded
-* You won't be put on the spot without support
-* There's nothing you can do to instantly fail or blow it
-
-**Please note: We need to receive the URL of your repository at least 24 hours before and please have the project finished at least 3 hours before your review so we can look at your materials in advance.**
 
 
-## Submitting your Project
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
 
- You’re almost done! In order to submit your project for review, include the following links to your work in the corresponding fields on the right-hand side of Learn.
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
 
- 1. **GitHub Repo:** Now that you’ve completed your project in Jupyter Notebooks, push your work to GitHub and paste that link to the right. (If you need help doing so, review the resources [here](https://docs.google.com/spreadsheets/d/1CNGDhjcQZDRx2sWByd2v-mgUOjy13Cd_hQYVXPuzEDE/edit#gid=0).)
-_Reminder: Make sure to also add and commit a pdf of your non-technical presentation to the repository with a file name of presentation.pdf._
-2. **Blog Post:** Include a link to your blog post.
-3. **Record Walkthrough:** Include a link to your video walkthrough.
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>id</th>
+      <th>date</th>
+      <th>price</th>
+      <th>bedrooms</th>
+      <th>bathrooms</th>
+      <th>sqft_living</th>
+      <th>sqft_lot</th>
+      <th>floors</th>
+      <th>waterfront</th>
+      <th>view</th>
+      <th>...</th>
+      <th>grade</th>
+      <th>sqft_above</th>
+      <th>sqft_basement</th>
+      <th>yr_built</th>
+      <th>yr_renovated</th>
+      <th>zipcode</th>
+      <th>lat</th>
+      <th>long</th>
+      <th>sqft_living15</th>
+      <th>sqft_lot15</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>7129300520</td>
+      <td>10/13/2014</td>
+      <td>221900.0</td>
+      <td>3</td>
+      <td>1.00</td>
+      <td>1180</td>
+      <td>5650</td>
+      <td>1.0</td>
+      <td>NaN</td>
+      <td>0.0</td>
+      <td>...</td>
+      <td>7</td>
+      <td>1180</td>
+      <td>0.0</td>
+      <td>1955</td>
+      <td>0.0</td>
+      <td>98178</td>
+      <td>47.5112</td>
+      <td>-122.257</td>
+      <td>1340</td>
+      <td>5650</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>6414100192</td>
+      <td>12/9/2014</td>
+      <td>538000.0</td>
+      <td>3</td>
+      <td>2.25</td>
+      <td>2570</td>
+      <td>7242</td>
+      <td>2.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>...</td>
+      <td>7</td>
+      <td>2170</td>
+      <td>400.0</td>
+      <td>1951</td>
+      <td>1991.0</td>
+      <td>98125</td>
+      <td>47.7210</td>
+      <td>-122.319</td>
+      <td>1690</td>
+      <td>7639</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>5631500400</td>
+      <td>2/25/2015</td>
+      <td>180000.0</td>
+      <td>2</td>
+      <td>1.00</td>
+      <td>770</td>
+      <td>10000</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>...</td>
+      <td>6</td>
+      <td>770</td>
+      <td>0.0</td>
+      <td>1933</td>
+      <td>NaN</td>
+      <td>98028</td>
+      <td>47.7379</td>
+      <td>-122.233</td>
+      <td>2720</td>
+      <td>8062</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>2487200875</td>
+      <td>12/9/2014</td>
+      <td>604000.0</td>
+      <td>4</td>
+      <td>3.00</td>
+      <td>1960</td>
+      <td>5000</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>...</td>
+      <td>7</td>
+      <td>1050</td>
+      <td>910.0</td>
+      <td>1965</td>
+      <td>0.0</td>
+      <td>98136</td>
+      <td>47.5208</td>
+      <td>-122.393</td>
+      <td>1360</td>
+      <td>5000</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>1954400510</td>
+      <td>2/18/2015</td>
+      <td>510000.0</td>
+      <td>3</td>
+      <td>2.00</td>
+      <td>1680</td>
+      <td>8080</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>...</td>
+      <td>8</td>
+      <td>1680</td>
+      <td>0.0</td>
+      <td>1987</td>
+      <td>0.0</td>
+      <td>98074</td>
+      <td>47.6168</td>
+      <td>-122.045</td>
+      <td>1800</td>
+      <td>7503</td>
+    </tr>
+  </tbody>
+</table>
+<p>5 rows × 21 columns</p>
+</div>
 
- Hit "I'm done" to wrap it up. You will receive an email in order to schedule your review with your instructor.
+
+
+
+```python
+df_raw.info()
+```
+
+    <class 'pandas.core.frame.DataFrame'>
+    RangeIndex: 21597 entries, 0 to 21596
+    Data columns (total 21 columns):
+     #   Column         Non-Null Count  Dtype  
+    ---  ------         --------------  -----  
+     0   id             21597 non-null  int64  
+     1   date           21597 non-null  object 
+     2   price          21597 non-null  float64
+     3   bedrooms       21597 non-null  int64  
+     4   bathrooms      21597 non-null  float64
+     5   sqft_living    21597 non-null  int64  
+     6   sqft_lot       21597 non-null  int64  
+     7   floors         21597 non-null  float64
+     8   waterfront     19221 non-null  float64
+     9   view           21534 non-null  float64
+     10  condition      21597 non-null  int64  
+     11  grade          21597 non-null  int64  
+     12  sqft_above     21597 non-null  int64  
+     13  sqft_basement  21597 non-null  object 
+     14  yr_built       21597 non-null  int64  
+     15  yr_renovated   17755 non-null  float64
+     16  zipcode        21597 non-null  int64  
+     17  lat            21597 non-null  float64
+     18  long           21597 non-null  float64
+     19  sqft_living15  21597 non-null  int64  
+     20  sqft_lot15     21597 non-null  int64  
+    dtypes: float64(8), int64(11), object(2)
+    memory usage: 3.5+ MB
+    
+
+## Scrub
+
+- Preliminary investigation.
+- Cast columns to the appropriate data types.
+- Identify and dealing with `NaN` values.
+ - Re-casting datatypes.
+- Remove columns which won't be used for modeling.
+- Deal with multicollinearity.
+
+***
+
+*It is at this point that the notebook branches. First, we continue to engineer data for use in the predictive model. We return to this point in order to get non-transformed data for interpretability.*
+
+***
+
+<img src = 'readme_visualizations/variable_correlation.png'>
+
+***
+
+<img src = 'readme_visualizations/distribution_relationship_target.png'>
+
+### Predictive model.
+
+- Normalizing the data (z-score).
+- One-hot encoding categorical columns.
+
+## Explore
+
+Since interpretability isn't the goal for the first model, I use a healthy amount of log-transformations as a part of the exploration portion.
+
+- Log-transform appropriate columns.
+<img src='readme_visualizations/price_log.png'>
+- Remove outliers from target variable.
+- Remove egregious outliers from predictive columns.
+
+### Feature Engineering
+
+- Create boolean categorical columns: 
+ - `8k_sqft_lot`, 
+ - `has_been_viewed`, 
+ - `has_basement`, 
+ - `8k_sqft_lot15_nearest`
+
+## Model 1
+
+```python
+Train r_squared:
+0.8635496506832979
+
+Test r_squared:
+0.8578350358782842
+```
+
+Model 1 performs well and shows the most important features.
+
+*Sorted by importance:*
+<img src='readme_visualizations/model1_coefs.PNG'>
+
+Of course, this is not , as everything has been altered so heavily in transforming and normalizing.
+
+## Model 2
+
+At this point we return to the data before it has been normalized and transformed in order to have a more interpretable model.
+
+What are the **dollar-amount effects** of each variable?
+
+### Data Processing (pt 2)
+
+- Remove outliers (based on **IQR**)
+<img src='readme_visualizations/price_iqr.PNG'>
+
+## Interpret
+
+```
+Training R^2:	0.8199609367320893
+Test Data R^2:	0.8244254571987037
+
+Training MSE:	6953650580.208784
+Test Data MSE:	7032223515.148423
+Percent Difference:	1.12%
+```
+
+`zipcode` by far was the most important feature, followed by the following features:
+
+<img src='readme_visualizations/normalized_coef.PNG'>
+
+# Model Visualizations
+<img src='readme_visualizations/zip.PNG'>
+<img src='readme_visualizations/region.PNG'>
+
+***
+
+<img src='readme_visualizations/water_reno.PNG'>
+<img src='readme_visualizations/sqft.png'>
+<img src='readme_visualizations/grade.png'>
+
+# Conclusion
+
+We can say without question that the top two most important features of a home are its **location**. (Apparently the old adage about *location, location, location* in real estate exists fro a reason.) 
+
+Having a home in certain neighborhoods increases (or decreases) the value of your home considerably. This makes sense, as you can imagine a home in the middle of the desert will be worth much less than the same home on Laguna Beach.
+
+The next most important factors are the **building itself** - both the building grade and whether or not it has been renovated have large impacts to the price of the home.
+
+For sellers, it is important to take note that the *quality* and *location* of the building is more important than the size or number of bathrooms or the yard.
+
+# Future Work
+
+Additional data could be used for this type of model.
+
+1. **Days on Market**
+> - Does the number of days on the market impact the sale price?
+> - Are there certain attributes that will make a home sell faster?
  
  
-## Grading Rubric
-Online students can find a PDF of the grading rubric for the project [here](https://github.com/learn-co-curriculum/dsc-mod-2-project-v2-1/blob/master/mod2_project_rubric.pdf). On-campus students may have different review processes, please speak with your instructor.
+2. **Competing Homes**
+> - Based on the attributes of all homes on the market in a given time, can we predict where their prices will end up ?
 
-
-## Summary
-
-The end of module projects and project reviews are a critical part of the program. They give you a chance to both bring together all the skills you've learned into realistic projects and to practice key "business judgement" and communication skills that you otherwise might not get as much practice with.
+3. **School Districts**
+> - Is attraction to a certain school district a motivating factor for buyers?
+> - Could this increase the home's value?
