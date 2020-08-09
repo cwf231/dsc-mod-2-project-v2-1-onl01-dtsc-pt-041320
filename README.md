@@ -289,12 +289,12 @@ Since interpretability isn't the goal for the first model, I use a healthy amoun
 - Remove egregious outliers from predictive columns.
 
 ### Feature Engineering
-# Explain this
+
 - Create boolean categorical columns: 
- - `8k_sqft_lot`, 
- - `has_been_viewed`, 
- - `has_basement`, 
- - `8k_sqft_lot15_nearest`
+ - `8k_sqft_lot`: Whether the property has a lot size smaller or larger than 8,000 $ft^2$,
+ - `has_been_viewed`: Whether or not a property had been viewed,
+ - `has_basement`: Whether or not a property has a basement,
+ - `8k_sqft_lot15_nearest`: Whether the property's 15 nearest neighbors have an average-sized-lot smaller or larger than 8,000 $ft^2$
 
 ## Model 1
 
