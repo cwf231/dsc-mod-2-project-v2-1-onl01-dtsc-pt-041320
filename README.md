@@ -344,7 +344,7 @@ Percent Difference:	1.12%
 
 We can say without question that the top two most important features of a home are its **location**. Apparently the old adage about *location, location, location* in real estate exists fro a reason.
 
-<img src='readme_visualizations/zip.PNG'>
+<img src='readme_visualizations/zip.png'>
 <img src='readme_visualizations/region.png'>
 
 
@@ -379,3 +379,8 @@ Additional data could be used for this type of model.
 3. **School Districts**
  - Is attraction to a certain school district a motivating factor for buyers?
  - Could this increase the home's value?
+
+
+```python
+
+```
