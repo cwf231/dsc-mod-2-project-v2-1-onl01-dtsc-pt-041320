@@ -1,3 +1,7 @@
+**Claude Fried**
+
+**Aug 13, 2020**
+
 # Introduction:
 
 When it comes to selling a house, people always have a different perception of what the experience should be like. Sometimes a seller has sentimental attachment to the house they grew up in (or raised their children in). Other times, they feel that investments and improvements they've made to the house and/or property are worth more than they actually are.
@@ -285,7 +289,7 @@ Since interpretability isn't the goal for the first model, I use a healthy amoun
 - Remove egregious outliers from predictive columns.
 
 ### Feature Engineering
-
+# Explain this
 - Create boolean categorical columns: 
  - `8k_sqft_lot`, 
  - `has_been_viewed`, 
@@ -293,6 +297,7 @@ Since interpretability isn't the goal for the first model, I use a healthy amoun
  - `8k_sqft_lot15_nearest`
 
 ## Model 1
+
 
 ```python
 Train r_squared:
@@ -335,38 +340,42 @@ Percent Difference:	1.12%
 
 <img src='readme_visualizations/normalized_coef.PNG'>
 
-# Model Visualizations
+# Conclusion
+
+We can say without question that the top two most important features of a home are its **location**. Apparently the old adage about *location, location, location* in real estate exists fro a reason.
+
 <img src='readme_visualizations/zip.PNG'>
 <img src='readme_visualizations/region.PNG'>
 
-***
+
+Having a home in certain **neighborhoods** increases (or decreases) the value of your home considerably. This makes sense, as you can imagine a home in the middle of the desert will be worth much less than the same home on Laguna Beach.
 
 <img src='readme_visualizations/water_reno.PNG'>
-<img src='readme_visualizations/sqft.png'>
+
+The next most important factors are the building itself - both the **building grade** and whether or not it has been **renovated** have large impacts to the price of the home.
+
 <img src='readme_visualizations/grade.png'>
 
-# Conclusion
+Additionally, every **square foot** counts a great deal. Adding additional square feet will increase the value of the home by $100 per square foot.
 
-We can say without question that the top two most important features of a home are its **location**. (Apparently the old adage about *location, location, location* in real estate exists fro a reason.) 
+<img src='readme_visualizations/sqft.png'>
 
-Having a home in certain neighborhoods increases (or decreases) the value of your home considerably. This makes sense, as you can imagine a home in the middle of the desert will be worth much less than the same home on Laguna Beach.
+***
 
-The next most important factors are the **building itself** - both the building grade and whether or not it has been renovated have large impacts to the price of the home.
-
-For sellers, it is important to take note that the *quality* and *location* of the building is more important than the size or number of bathrooms or the yard.
+For sellers, it is important to take note that the *quality* and *location* of the building is more important than the number of bathrooms or the size of the yard.
 
 # Future Work
 
 Additional data could be used for this type of model.
 
 1. **Days on Market**
-> - Does the number of days on the market impact the sale price?
-> - Are there certain attributes that will make a home sell faster?
+ - Does the number of days on the market impact the sale price?
+ - Are there certain attributes that will make a home sell faster?
  
  
 2. **Competing Homes**
-> - Based on the attributes of all homes on the market in a given time, can we predict where their prices will end up ?
+ - Based on the attributes of all homes on the market at a given time, can we predict where their prices will end up ?
 
 3. **School Districts**
-> - Is attraction to a certain school district a motivating factor for buyers?
-> - Could this increase the home's value?
+ - Is attraction to a certain school district a motivating factor for buyers?
+ - Could this increase the home's value?
