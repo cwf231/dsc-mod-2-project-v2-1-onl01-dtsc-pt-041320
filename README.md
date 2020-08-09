@@ -323,7 +323,7 @@ What are the **dollar-amount effects** of each variable?
 ### Data Processing (pt 2)
 
 - Remove outliers (based on **IQR**)
-<img src='readme_visualizations/price_iqr.PNG'>
+<img src='readme_visualizations/price_iqr.png'>
 
 ## Interpret
 
@@ -338,19 +338,19 @@ Percent Difference:	1.12%
 
 `zipcode` by far was the most important feature, followed by the following features:
 
-<img src='readme_visualizations/normalized_coef.PNG'>
+<img src='readme_visualizations/normalized_coef.png'>
 
 # Conclusion
 
 We can say without question that the top two most important features of a home are its **location**. Apparently the old adage about *location, location, location* in real estate exists fro a reason.
 
 <img src='readme_visualizations/zip.PNG'>
-<img src='readme_visualizations/region.PNG'>
+<img src='readme_visualizations/region.png'>
 
 
 Having a home in certain **neighborhoods** increases (or decreases) the value of your home considerably. This makes sense, as you can imagine a home in the middle of the desert will be worth much less than the same home on Laguna Beach.
 
-<img src='readme_visualizations/water_reno.PNG'>
+<img src='readme_visualizations/water_reno.png'>
 
 The next most important factors are the building itself - both the **building grade** and whether or not it has been **renovated** have large impacts to the price of the home.
 
